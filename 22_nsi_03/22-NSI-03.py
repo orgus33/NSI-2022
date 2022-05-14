@@ -31,5 +31,4 @@ e = Noeud(Noeud(Noeud(None, 3, None), '*', Noeud(Noeud(None, 8, None),
                                                  '+', Noeud(None, 7, None))), '-', Noeud(Noeud(None, 2, None), '+',
                                                                                          Noeud(None, 1, None)))
 
-
 print(expression_infixe(e))

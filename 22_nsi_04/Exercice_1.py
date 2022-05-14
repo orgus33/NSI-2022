@@ -1,5 +1,6 @@
 def recherche(tab):
     liste = []
+    
     for i in range(0, len(tab)-1):
         if (1+tab[i]) == tab[i+1]:
             liste.append((tab[i], tab[i+1]))
