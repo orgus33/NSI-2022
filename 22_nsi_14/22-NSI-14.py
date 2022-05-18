@@ -1,16 +1,20 @@
 def est_cyclique(plan):
     '''
-    Prend en paramètre un dictionnaire `plan` correspondant 
-    à un plan d'envoi de messages entre `N` personnes A, B, C, 
+    Prend en paramètre un dictionnaire `plan` correspondant
+    à un plan d'envoi de messages entre `N` personnes A, B, C,
     D, E, F ...(avec N <= 26).
     Renvoie True si le plan d'envoi de messages est cyclique
-    et False sinon. 
+    et False sinon.
     '''
     personne = 'A'
-    N = len(...)                          
-    for i in range(...):
-        if plan[...] == ...:
-            return ...
+    N = len(plan)
+    for i in range(N-1):
+        if plan[personne] == 'A':
+            return False
         else:
-            personne = ...
-    return ...
+            personne = plan[personne]
+    return True
+
+
+print(est_cyclique(
+    {'A': 'E', 'F': 'C', 'C': 'D', 'E': 'B', 'B': 'F', 'D': 'A'}))
