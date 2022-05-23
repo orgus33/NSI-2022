@@ -1,5 +1,6 @@
 class Pile:
     """ Classe définissant une pile """
+
     def __init__(self, valeurs=[]):
         self.valeurs = valeurs
 
@@ -17,19 +18,24 @@ class Pile:
             self.valeurs.pop()
 
 
-def parenthesage (ch):
+def parenthesage(ch):
     """Renvoie True si la chaîne ch est bien parenthésée et False sinon"""
     p = Pile()
     for c in ch:
-        if c == ...:
+        if c == '(':
             p.empiler(c)
-        elif c == ...:
+        elif c == ')':
             if p.est_vide():
-                return ...
+                return False
             else:
-                ...
+                p.depiler()
     return p.est_vide()
 
-assert parenthesage("((()())(()))") == True
-assert parenthesage("())(()") == False
-assert parenthesage("(())(()") == False
+
+# assert parenthesage("((()())(()))") == True
+# assert parenthesage("())(()") == False
+# assert parenthesage("(())(()") == False
+
+print(parenthesage("((()())(()))"))
+print(parenthesage("())(()"))
+print(parenthesage("(())(()"))
