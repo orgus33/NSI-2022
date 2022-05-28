@@ -1,15 +1,16 @@
-coeur = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], \
-         [0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0], \
-         [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0], \
-         [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0], \
-         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], \
-         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], \
-         [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], \
-         [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0], \
-         [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0], \
-         [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0], \
-         [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], \
+coeur = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         [0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0],
+         [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
+         [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
+         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+         [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+         [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+         [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
 
 def affiche(dessin):
     ''' affichage d'une grille : les 1 sont repreente par 
@@ -17,27 +18,32 @@ def affiche(dessin):
     for ligne in dessin:
         for col in ligne:
             if col == 1:
-                print(" *",end="")
+                print(" *", end="")
             else:
-                print("  ",end="")
+                print("  ", end="")
         print()
 
 
-def zoomListe(liste_depart,k):
+def zoomListe(liste_depart, k):
     '''renvoie une liste contenant k fois chaque 
        element de liste_depart'''
-    liste_zoom = ...
-    for elt in ... :
+    liste_zoom = []
+    for elt in liste_depart:
         for i in range(k):
-            ...
+            liste_zoom.append(elt)
     return liste_zoom
 
-def zoomDessin(grille,k):
+
+def zoomDessin(grille, k):
     '''renvoie une grille ou les lignes sont zoomees k fois 
        ET repetees k fois'''
-    grille_zoom=[]
+    grille_zoom = []
     for elt in grille:
-        liste_zoom = ...
+        liste_zoom = zoomListe(elt, k)
         for i in range(k):
-            ... .append(...)
+            grille_zoom.append(liste_zoom)
     return grille_zoom
+
+
+affiche(coeur)
+affiche(zoomDessin(coeur, 3))
